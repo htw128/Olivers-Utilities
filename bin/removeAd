@@ -1,0 +1,49 @@
+#!/bin/sh
+#pause函数
+function get_char(){
+    SAVEDSTTY=`stty -g`
+    stty -echo
+    stty cbreak
+    dd if=/dev/tty bs=1 count=1 2> /dev/null
+    stty -raw
+    stty echo
+    stty $SAVEDSTTY
+}
+function pause(){
+    local enable_pause=1
+    if [[ "x$1" != "x" ]]
+    then
+        echo $1
+    fi
+    if [[ $enable_pause -eq 1 ]]
+    then
+        echo "Press any key to continue!"
+        char=`get_char`
+    fi
+}
+function batch(){
+    cd $target
+    for f in *
+    do
+        ext=${f##*.}
+        ffmpeg -ss "$trim_start" -i "$f" -c copy -map 0 "${f%.*}-trimmed.$ext"
+    done
+}
+function single(){
+    ext=${target##*.}
+    ffmpeg -ss "$trim_start" -i $target -c copy -map 0 "${target%.*}-trimmed.$ext"
+}
+which ffmpeg
+if [[ $? == "1" ]];then
+    echo "请先安装ffmpeg"
+    pause
+    return 1
+    exit
+fi
+read -p "请拖入视频或文件夹：" target
+read -p "请输入要删去片头的时长：" trim_start
+if [[ -d $target ]];then 
+    batch
+elif [[ -f $target ]];then
+    single
+fi
