@@ -1,37 +1,85 @@
-## Welcome to GitHub Pages
+# Oliver的sh工具箱
 
-You can use the [editor on GitHub](https://github.com/htw128/Olivers-Utilities/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## 欢迎你使用本工具箱！
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+_需要注意的是，本工具箱现仍处于Under development阶段……还有很多我自己的需求都没有做完……因此除非各位大佬能pull帮我完善，暂时就不接大家的需求了。_
 
-### Markdown
+本工具箱是我平时根据自己的需求所写的一些脚本，在此打包成一个工具箱。安装后你的终端会增加许多实用功能。
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## 安装
 
-```markdown
-Syntax highlighted code block
+_**目前文档中记载的安装方法仅为我预想的方法，并没有上线！**_
 
-# Header 1
-## Header 2
-### Header 3
+- 通过`brew install olivers-util`来安装本工具箱。
 
-- Bulleted
-- List
+- 直接clone本git到本地后，运行install.sh（需要手动`chmod +x`）。
 
-1. Numbered
-2. List
+_下面的方法你可以_**_现在_**_动手试试。_
 
-**Bold** and _Italic_ and `Code` text
+- clone git到本地后将`bin`文件夹内的几个文件拷贝至`/usr/local/bin`或`~/bin`中。
+- clone git到本地后将`bin`文件夹添加至你所使用的shell配置文件中的`$PATH`中.
 
-[Link](url) and ![Image](src)
-```
+## 卸载
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+_**目前文档中记载的卸载方法仅为我预想的方法，并没有上线！**_
 
-### Jekyll Themes
+如果你安装时使用了[Homebrew](https://github.com/Homebrew/brew)，那么你自然可以通过`brew uninstall olivers-util`来进行卸载。
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/htw128/Olivers-Utilities/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+如果你使用的install.sh脚本进行的安装，那么可以再次运行该脚本来进行卸载。
 
-### Support or Contact
+如果以上方法都不适用，或你想确认是否卸载干净，你可以去下面几个位置看看有没有本工具集提供的几个命令：
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+`/usr/local/bin`
+
+`~/bin`
+
+## 目前提供的功能
+
+#### compare
+
+使用MD5来比较两个文件是否相同。可直接拖入两个文件做为参数，或直接运行`compare`然后再拖入文件。
+
+#### fixusbd
+
+解决手机连接到Mac后闪断的问题。
+
+#### unpack
+
+一键解压从某网站下载的资源。解压完的资源将放置在桌面上名为“payload"的文件夹内。
+
+#### removeAd
+
+移除片头特定时长的广告。需要[ffmpeg](https://github.com/FFmpeg/FFmpeg)。
+
+时长默认为秒数，可以在其后增加时间指示更改单位。如：`120mm` 表示丢弃前部120毫秒的内容。
+
+### 需进行适配或增加功能的
+
+与媒体相关的部分需要[ffmpeg](https://github.com/FFmpeg/FFmpeg)。 以下是各个工具的说明：
+
+#### combine.sh
+
+用于合并从各个平台(Youtube)下载的音画分离文件，需要ffmpeg。
+
+* [ ] 增加自动判断是否传参
+
+#### clean potos.sh
+
+当你用Mac自带的图像捕捉程序从iPhone导出照片时会自动导出.mov、.HEIC和.jpg三个文件。本脚本将会删除.mov和.jpg，仅保留.HEIC文件。此脚本适用于你不清楚到底你删了哪个照片的哪个文件，脚本会自动判断并删除。
+
+* [ ] 增加用户选择保留什么文件
+
+### 不知道有啥用途不打算做适配的
+
+#### 批量添加字幕.sh
+
+视频和字幕在同一文件夹且命名相同时，将字幕文件以软字幕的方式添加到视频并封装在mkv容器中，需要ffmpeg。
+
+#### change bitrate.sh
+
+参数1为源音频文件，参数2为目标比特率。默认输出到源音频文件同目录下，需要ffmpeg。
+
+## 本工具箱目前仍需要完成的部分
+
+* [ ] 安装脚本
+* [ ] 自动更新脚本
