@@ -1,6 +1,12 @@
 #!/bin/sh
-scriptAbsDir=$(readlink -f "$0")
-scriptDir=$(dirname $scriptAbsDir)
+scriptDir=$(dirname $0)
+commands=(
+    compare
+    fixusb
+    pause
+    removeAd
+    unpack
+    )
 cd $scriptDir/bin
 installDir="/usr/local/bin"
 function install(){
@@ -9,7 +15,7 @@ function install(){
         mkdir $installDir
     fi
     #拷贝文件至安装目的地
-    for file in * ;do
+    for file in * ; do
         cp $file $installDir
     done
     echo "已完成安装！感谢你选择Oliver的sh工具箱！"
@@ -19,9 +25,11 @@ function uninstall(){
     if [[ $confirm == "y" ]];then
         echo "正在删除文件……"
         cd $installDir
-        for file in *
+        index=0
+        while [[ $index <= 4 ]]
         do
-            rm -f $file
+            rm -f $commands[$index]
+            index=$(expr $index + 1)
         done
         echo "已删除，我们相忘于江湖！"
     elif [[ $confirm != "y" ]];then
@@ -29,12 +37,9 @@ function uninstall(){
         pause
         exit
     fi
-
 }
 if [[ -e "$installDir/pause" ]];then
-do
     uninstall
 elif [[ ! -e "installDir/pause" ]];then
-do
     install
-done
+fi
