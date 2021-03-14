@@ -33,11 +33,11 @@
 与媒体相关的部分需要[ffmpeg](https://github.com/FFmpeg/FFmpeg)。
 以下是各个工具的说明：
 
-### combine.sh
+### combine
 
 用于合并从各个平台(Youtube)下载的音画分离文件，需要ffmpeg。
 
-- [ ] 增加自动判断是否传参
+共有三个参数
 
 ### clean potos.sh
 
