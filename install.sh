@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #设置变量
 commands=(
     compare
