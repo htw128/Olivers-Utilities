@@ -11,6 +11,7 @@ function single(){
     ext=${target##*.}
     ffmpeg -ss "$trim_start" -i $target -c copy -map 0 "${target%.*}-trimmed.$ext"
 }
+echo "正在检测ffmpeg安装位置……"
 which ffmpeg
 if [[ $? == "1" ]];then
     echo "请先安装ffmpeg"

@@ -6,15 +6,23 @@
 
 ### compare
 
-使用MD5来比较两个文件是否相同。可直接拖入两个文件做为参数，或直接运行`compare`然后再拖入文件。
+使用MD5来比较两个文件是否相同。
+
+用法：
+
+`compare [file1] [file2]` 或直接运行 `compare`。
 
 ### fixusbd
 
 解决手机连接到Mac后闪断的问题。
 
+用法：`fixusbd`
+
 ### unpack
 
 一键解压从某网站下载的资源。解压完的资源将放置在桌面上名为“payload"的文件夹内。
+
+用法：`unpack [resource]`或`unpack`
 
 ### removeAd
 
@@ -26,18 +34,22 @@
 
 为shell补充缺失的pause命令。调用本功能后会提示“请按任意键继续……"
 
+### combine
+
+用于合并从各个平台(Youtube)下载的音画分离文件，需要ffmpeg。
+
+用法:
+
+`combine [视频源] [音频源] [标题]`
+
+或者你可以直接运行`combine`命令
+
 ## 需进行适配或增加功能的
 
 下面列出的小工具未进行通用适配，仅适用于我的环境。
 
 与媒体相关的部分需要[ffmpeg](https://github.com/FFmpeg/FFmpeg)。
 以下是各个工具的说明：
-
-### combine
-
-用于合并从各个平台(Youtube)下载的音画分离文件，需要ffmpeg。
-
-共有三个参数
 
 ### clean potos.sh
 
