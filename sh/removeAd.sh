@@ -1,0 +1,28 @@
+#!/bin/sh
+function batch(){
+    cd $target
+    for f in *
+    do
+        ext=${f##*.}
+        ffmpeg -ss "$trim_start" -i "$f" -c copy -map 0 "${f%.*}-trimmed.$ext"
+    done
+}
+function single(){
+    ext=${target##*.}
+    ffmpeg -ss "$trim_start" -i $target -c copy -map 0 "${target%.*}-trimmed.$ext"
+}
+echo "正在检测ffmpeg安装位置……"
+which ffmpeg
+if [[ $? == "1" ]];then
+    echo "请先安装ffmpeg"
+    pause
+    return 1
+    exit
+fi
+read -p "请拖入视频或文件夹：" target
+read -p "请输入要删去片头的时长：" trim_start
+if [[ -d $target ]];then 
+    batch
+elif [[ -f $target ]];then
+    single
+fi
