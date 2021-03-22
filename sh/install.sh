@@ -9,7 +9,7 @@ commands=(
     combine
     )
 scriptDir=$(dirname $0)
-cd $scriptDir/bin
+cd $scriptDir/../bin
 installDir="/usr/local/bin/"
 
 function install(){
