@@ -80,15 +80,23 @@ _暂未上线_
 
 用法:
 
-`combine [视频源] [音频源] [标题]`或`combine`
+`combine [视频源] [音频源] [标题]`
 
-### 需进行适配或增加功能的
+或
 
-#### clean potos.sh
+`combine`并根据提示进行操作。
 
-当你用Mac自带的图像捕捉程序从iPhone导出照片时会自动导出.mov、.HEIC和.jpg三个文件。本脚本将会删除.mov和.jpg，仅保留.HEIC文件。此脚本适用于你不清楚到底你删了哪个照片的哪个文件，脚本会自动判断并删除。
+#### cleanPhotos
 
-* [ ] 增加用户选择保留什么文件
+当你用Mac自带的图像捕捉程序从iPhone导出照片时会自动导出.mov、.HEIC、jpg和.aae四个文件。本脚本将会根据你制定的保留项，自动筛选并删除你不需要的内容。
+
+用法：
+
+`cleanPhotos [ your photo folder]`
+
+或
+
+`cleanPhotos`并根据提示进行操作。
 
 ### 不知道有啥用途不打算做适配的
 
@@ -103,9 +111,8 @@ _暂未上线_
 ## 本工具箱目前仍需要完成的部分
 
 * [ ] 自动更新脚本
-* [ ] openBSD适配
 
 ## 已知的问题与解决方法
 
 - Ubuntu会将`#!/bin/sh`解析为dash，会导致包括install.sh在内的所有功能无法使用。需要运行`sudo dpkg-reconfigure dash`并在出现的界面中选no，即可关闭dash（但会影响Ubuntu的启动速度）。
-- 如md5等命令在openBSD系统中不提供，需要进行适配。
+- 如md5等命令在openBSD系统中不提供。且Linux系统中有更加好用的`diff`，因此不再考虑进行适配。
