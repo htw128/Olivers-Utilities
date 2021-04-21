@@ -1,13 +1,10 @@
 #!/bin/sh
 #传入文件
-if [[ $1 == "" ]]
-then
-    while [[ $file1 == "" ]]
-    do
+if [[ -z $1 ]];then
+    while [[ -z $file1 ]];do
     read -p "请拖入第一个文件并按回车：" file1
     done
-    while [[ $file2 == "" ]]
-    do
+    while [[ -z $file2 ]];do
     read -p "请拖入第二个文件并按回车：" file2
     done
 else
