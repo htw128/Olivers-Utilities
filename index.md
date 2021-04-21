@@ -16,15 +16,15 @@ _暂未上线_
 
 **已上线**
 
-- clone本git到本地后，运行install.sh（需要手动`chmod +x`）。
+`    `clone本git到本地后，运行install.sh（需要手动`chmod +x`）。
 
-手动安装：
+`  `手动安装：
 
-- clone git到本地后将`bin`文件夹内的几个文件拷贝至`/usr/local/bin`中。
+`    `clone git到本地后将`bin`文件夹内的几个文件拷贝至`/usr/local/bin`中。
 
-或：
+`  `或：
 
-- clone git到本地后将`bin`文件夹添加至你所使用的shell配置文件中的`$PATH`中.
+`    `clone git到本地后将`bin`文件夹添加至你所使用的shell配置文件中的`$PATH`中.
 
 ## 卸载
 
@@ -88,11 +88,11 @@ _暂未上线_
 
 #### cleanPhotos
 
-当你用Mac自带的图像捕捉程序从iPhone导出照片时会自动导出.mov、.HEIC、jpg和.aae四个文件。本脚本将会根据你制定的保留项，自动筛选并删除你不需要的内容。
+当你用Mac自带的图像捕捉程序从iPhone导出照片时会自动导出.MOV、.HEIC、.JPG和.AAE四个文件。本脚本将会根据你制定的保留项，自动筛选并删除你不需要的内容。
 
 用法：
 
-`cleanPhotos [ your photo folder]`
+`cleanPhotos [your photo folder]`
 
 或
 
